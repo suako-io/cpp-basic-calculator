@@ -4,21 +4,26 @@ double calculate(char operation, int firstNumber, int secondNumber)
 {
     double result = 0;
 
-    if (operation == '+')
+    switch (operation)
     {
-        result = firstNumber + secondNumber;
-    }
-    else if (operation == '-')
-    {
-        result = firstNumber - secondNumber;
-    }
-    else if (operation == '/')
-    {
-        result = firstNumber / secondNumber;
-    }
-    else if (operation == '*')
-    {
-        result = firstNumber * secondNumber;
+        case '+':
+            result = firstNumber + secondNumber;
+            break;
+
+        case '-':
+            result = firstNumber - secondNumber;
+            break;
+
+        case '/':
+            result = firstNumber / secondNumber;
+            break;
+
+        case '*':
+            result = firstNumber * secondNumber;
+            break;
+        
+        default:
+            break;
     }
 
     return result;
