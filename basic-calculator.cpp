@@ -29,15 +29,12 @@ double calculate(char operation, int firstNumber, int secondNumber)
     return result;
 }
 
-int main()
+void runCalculator()
 {
     int firstNumber;
     int secondNumber;
     double result;
     char operation;
-
-    std::cout << "Basic calculator" << std::endl 
-        << "================" << std::endl;
 
     // Take first number input
     std::cout << "Input first number: ";
@@ -55,6 +52,41 @@ int main()
     // Calculate the result and return it
     result = calculate(operation, firstNumber, secondNumber);
     std::cout << "Answer is: " << result << std::endl;
+}
+
+int main()
+{
+    bool exitApplication = false;
+
+    std::cout << "Basic calculator" << std::endl
+        << "================" << std::endl;
+
+    while (exitApplication == false)
+    {
+        runCalculator();
+
+        // Ask the user if they want to continue
+        char userChoice;
+        std::cout << std::endl << "Start a new calculation? (y/n) ";
+        std::cin >> userChoice;
+        std::cout << std::endl;
+
+        // Covering all cases so I don't forget
+        if (userChoice == 'y')
+        {
+            continue;
+        }
+        else if (userChoice == 'n')
+        {
+            exitApplication = true;
+            std::cout << "Goodbye :D" << std::endl;
+        }
+        else
+        {
+            std::cout << "Not a valid choice, starting a  new calculation" << std::endl;
+            std::cout << std::endl;
+        }
+    }
 
     return 0;
 }
